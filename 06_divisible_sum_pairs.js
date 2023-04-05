@@ -11,6 +11,9 @@ int n: the length of array
 int ar[n]: an array of integers
 int k: the integer divisor
 
+*/
+
+/*
 Pseudocode:
 
 first thoughts are about using a for loop with index "i" and other nested for loop with index "J"
@@ -24,7 +27,7 @@ function divisibleSumPairs(n, k, ar) {
     let counter = 0;
     for (let i = 0; i < n; i++) {
         for (let j = i + 1; j < n; j++) {
-            if (i < j && (ar[i] + ar[j]) % k == 0) counter++;
+            if ((ar[i] + ar[j]) % k == 0) counter++;
         }
     }
     return counter;
