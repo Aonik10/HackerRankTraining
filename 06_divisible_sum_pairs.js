@@ -25,9 +25,9 @@ I must check if (i, j) current pair of the loop i+j%k==0
 function divisibleSumPairs(n, k, ar) {
     // Write your code here
     let counter = 0;
-    for (let i of ar) {
-        for (let j of ar) {
-            if (i < j && (i + j) % k == 0) counter++;
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            if (i < j && (ar[i] + ar[j]) % k == 0) counter++;
         }
     }
     return counter;
