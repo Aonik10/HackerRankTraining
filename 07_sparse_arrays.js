@@ -37,8 +37,3 @@ function matchingStrings(strings, queries) {
     }
     return result;
 }
-
-let strings = ["aba", "baba", "aba", "xzxb"];
-let queries = ["aba", "xzxb", "ab"];
-
-console.log(matchingStrings(strings, queries));
