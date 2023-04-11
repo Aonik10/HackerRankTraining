@@ -39,6 +39,9 @@ Sample output
 0
 -1
 
+recorrer con indices desde el principio en adelante y desde el final hacia atras, cuando me encuentre con un caso donde los valores no coinciden
+me tengo q fijar si lo que falta recorrer de ambos lados coinciden al remover una letra u otra.
+
 */
 
 function isPalindrome(s) {
@@ -48,6 +51,25 @@ function isPalindrome(s) {
 
 function palindromeIndex(s) {
     // Write your code here
+    let i = 0;
+    let j = s.length - 1;
+    while (i < j) {
+        if (s[i] != s[j]) {
+            let newString = s.substring(i, j + 1);
+            if (isPalindrome(newString.substring(1))) return i;
+            if (isPalindrome(newString.substring(0, newString.length - 1)))
+                return j;
+            else return -1;
+        }
+        i++;
+        j--;
+    }
+    return -1;
+}
+
+/*
+function palindromeIndex(s) {
+    // Write your code here
     if (isPalindrome(s)) return -1;
     for (let i = 0; i < s.length; i++) {
         let newString = s.substring(0, i) + s.substring(i + 1);
@@ -55,3 +77,4 @@ function palindromeIndex(s) {
     }
     return -1;
 }
+*/
