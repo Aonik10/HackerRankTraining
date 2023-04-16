@@ -77,4 +77,15 @@ function palindromeIndex(s) {
     }
     return -1;
 }
+
+function isPalindrome2(s) {
+    let i = 0;
+    let j = s.length - 1;
+    while (i < j) {
+        if (s[i] != s[j]) return false;
+        i++;
+        j--;
+    }
+    return true;
+}
 */
