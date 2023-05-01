@@ -35,10 +35,11 @@ function minimumBribes(q) {
     let min_bribes = 0;
     let window = [1, 2, 3];
     for (let i = 0; i < q.length; i++) {
-        if (window.includes(q[i])) {
-            min_bribes += window.indexOf(q[i]);
+        let index = window.indexOf(q[i]);
+        if (index != -1) {
+            min_bribes += index;
             window.push(i + 4);
-            window.splice(window.indexOf(q[i]), 1);
+            window.splice(index, 1);
         } else {
             console.log("Too chaotic");
             return;
