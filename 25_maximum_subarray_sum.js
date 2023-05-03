@@ -37,11 +37,11 @@ Returns
 
 [1,2,3,4,5] { 
     1: [
-        [1,2,3,4,5],
-        [1,2,3,4],
-        [1,2,3],
-        [1,2],
-        [1],
+        [1,2,3,4,5],    [2,3,4]     [3]
+        [1,2,3,4],      [2,3]       
+        [1,2,3],        [2]         
+        [1,2],          
+        [1],            
     ],
     2: [
         [2,3,4,5],
@@ -83,7 +83,7 @@ function maximumSum(a, m) {
     return maxSum;
 }
 
-console.log(maximumSum([1, 2, 3, 4, 5], 2));
+console.log(maximumSum([3, 3, 9, 9, 5], 7));
 
 /*
 function maximumSum(a, m) {

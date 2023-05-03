@@ -99,21 +99,13 @@ function compareSquares(first, second) {
 function formingMagicSquare(s) {
     // Write your code here
     let squares = buildMagicSquares();
-    let min = 120;
+    let min = Number.MAX_VALUE;
     for (let square of squares) {
         let counter = compareSquares(square, s);
         if (counter < min) min = counter;
     }
     return min;
 }
-
-console.log(
-    formingMagicSquare([
-        [7, 2, 9],
-        [6, 6, 2],
-        [5, 1, 2],
-    ])
-);
 
 /*
     2 7 6
