@@ -3,42 +3,27 @@ Description at: https://www.hackerrank.com/challenges/climbing-the-leaderboard/p
 
 
 */
-
-function findPosition(score, scoreboard) {
-    let i = 0;
-    let j = scoreboard.length - 1;
-    while (i <= j) {
-        let middle = Math.floor((i + j) / 2);
-        if (score < scoreboard[middle]) {
-            i = middle + 1;
-        } else if (score > scoreboard[middle]) {
-            j = middle - 1;
-        } else {
-            return middle + 1;
-        }
-    }
-    return i + 1;
-}
-
-// Need better performance
 function climbingLeaderboard(ranked, player) {
     // Write your code here
     let playerRankings = [];
-    let scoreboard = ranked.filter(
-        (item, index) => ranked.indexOf(item) == index
-    );
-    for (let score of player) {
-        playerRankings.push(findPosition(score, scoreboard));
+    let currentRank = ranked.shift();
+    let currentScore = player.pop();
+    let i = 1;
+    let j = 0;
+    while (j < ranked.length || currentScore) {
+        if (currentScore >= currentRank || j > ranked.length) {
+            playerRankings.unshift(i);
+            currentScore = player.pop();
+            continue;
+        }
+        if (currentRank != ranked[j]) {
+            currentRank = ranked[j];
+            i++;
+        }
+        j++;
     }
     return playerRankings;
 }
-
-ranked = [100, 100, 50, 40, 40, 20, 10];
-player = [5, 25, 50, 120];
-
-console.log(climbingLeaderboard(ranked, player));
-
-console.log(climbingLeaderboard2(ranked, player));
 
 // First naive solution
 
