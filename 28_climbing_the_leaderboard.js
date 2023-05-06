@@ -3,6 +3,7 @@ Description at: https://www.hackerrank.com/challenges/climbing-the-leaderboard/p
 
 
 */
+
 function climbingLeaderboard(ranked, player) {
     // Write your code here
     let playerRankings = [];
@@ -10,7 +11,7 @@ function climbingLeaderboard(ranked, player) {
     let currentScore = player.pop();
     let i = 1;
     let j = 0;
-    while (j < ranked.length || currentScore) {
+    while (currentScore != undefined) {
         if (currentScore >= currentRank || j > ranked.length) {
             playerRankings.unshift(i);
             currentScore = player.pop();
@@ -26,7 +27,6 @@ function climbingLeaderboard(ranked, player) {
 }
 
 // First naive solution
-
 function climbingLeaderboard2(ranked, player) {
     // Write your code here
     let playerRankings = [];
@@ -42,3 +42,13 @@ function climbingLeaderboard2(ranked, player) {
     }
     return playerRankings;
 }
+
+let ranked = [100, 90, 90, 65, 50, 50, 45, 45, 1];
+let player = [2, 40, 45, 65, 95, 100, 105, 106];
+
+console.log(climbingLeaderboard2(ranked, player));
+
+ranked = [100, 90, 90, 65, 50, 50, 45, 45, 1];
+player = [2, 40, 45, 65, 95, 100, 105, 106];
+
+console.log(climbingLeaderboard(ranked, player));
